@@ -221,6 +221,7 @@
                                 } else {
                                     $paymentMode = "Online";
                                 }
+                                
                                 $orderStatus = $row['orderStatus'];
 
                                 $counter++;

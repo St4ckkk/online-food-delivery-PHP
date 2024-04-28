@@ -23,7 +23,7 @@
             $server = "localhost";
             $username = "root";
             $password = "";
-            $database = "OPD";
+            $database = "ofd";
 
             $conn = mysqli_connect($server, $username, $password, $database);
             if (!$conn) {
@@ -37,7 +37,7 @@
             $categoriesResult = mysqli_query($conn, $categoriesQuery);
             $categoryCount = mysqli_fetch_assoc($categoriesResult)['category_count'];
             // Retrieve the delivered items from the orders table
-
+            
             $deliveredItemsQuery = "SELECT COUNT(*) AS delivered_count FROM delivereditems";
             $deliveredItemsResult = mysqli_query($conn, $deliveredItemsQuery);
             $deliveredCount = mysqli_fetch_assoc($deliveredItemsResult)['delivered_count'];
@@ -92,9 +92,12 @@
         <div class="container-fluid px-4">
             <div class="row g-3 my-2">
                 <div class="col-md-3 col-sm-6">
-                    <div class="p-3 bg-primary bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div
+                        class="p-3 bg-primary bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2"><?php echo $itemCount; ?></h3>
+                            <h3 class="fs-2">
+                                <?php echo $itemCount; ?>
+                            </h3>
                             <p class="fs-5">Items</p>
                         </div>
                         <i class="fas fa-hotdog fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -102,9 +105,12 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6">
-                    <div class="p-3 bg-secondary bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div
+                        class="p-3 bg-secondary bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2"><?php echo $categoryCount; ?></h3>
+                            <h3 class="fs-2">
+                                <?php echo $categoryCount; ?>
+                            </h3>
                             <p class="fs-5">Categories</p>
                         </div>
                         <i class="fas fa-list-alt fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -112,9 +118,12 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6">
-                    <div class="p-3 bg-danger bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div
+                        class="p-3 bg-danger bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2"><?php echo $deliveredCount; ?></h3>
+                            <h3 class="fs-2">
+                                <?php echo $deliveredCount; ?>
+                            </h3>
                             <p class="fs-5">Delivered</p>
                         </div>
                         <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -122,9 +131,12 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6">
-                    <div class="p-3 bg-warning bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div
+                        class="p-3 bg-warning bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2"><?php echo $userCount; ?></h3>
+                            <h3 class="fs-2">
+                                <?php echo $userCount; ?>
+                            </h3>
                             <p class="fs-5">Users</p>
                         </div>
                         <i class="fas fa-users fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -132,18 +144,24 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6">
-                    <div class="p-3 bg-info bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div
+                        class="p-3 bg-info bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2"><?php echo $orderCount; ?></h3>
+                            <h3 class="fs-2">
+                                <?php echo $orderCount; ?>
+                            </h3>
                             <p class="fs-5">Orders</p>
                         </div>
                         <i class="fas fa-shopping-cart fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <div class="p-3 bg-success bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div
+                        class="p-3 bg-success bg-gradient shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2">₱<?php echo $totalSales; ?></h3>
+                            <h3 class="fs-2">₱
+                                <?php echo $totalSales; ?>
+                            </h3>
                             <p class="fs-5">Sales</p>
                         </div>
                         <i class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -169,7 +187,7 @@
                             $server = "localhost";
                             $username = "root";
                             $password = "";
-                            $database = "OPD";
+                            $database = "ofd";
 
                             $conn = mysqli_connect($server, $username, $password, $database);
 
@@ -191,14 +209,22 @@
                                         $lastName = $row['lastName'];
                                         $amount = $row['amount'];
                                         $fullName = $firstName . ' ' . $lastName;
-                            ?>
+                                        ?>
                                         <tr>
-                                            <th scope="row"><?php echo $index; ?></th>
-                                            <td><?php echo $itemdetails; ?></td>
-                                            <td><?php echo $fullName; ?></td>
-                                            <td><?php echo '₱' .  ' ' . $amount; ?></td>
+                                            <th scope="row">
+                                                <?php echo $index; ?>
+                                            </th>
+                                            <td>
+                                                <?php echo $itemdetails; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $fullName; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo '₱' . ' ' . $amount; ?>
+                                            </td>
                                         </tr>
-                            <?php
+                                        <?php
                                         $index++;
                                     }
                                 } else {
@@ -232,7 +258,7 @@
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
 
-        toggleButton.onclick = function() {
+        toggleButton.onclick = function () {
             el.classList.toggle("toggled");
         };
     </script>

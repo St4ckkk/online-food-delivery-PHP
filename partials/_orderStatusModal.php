@@ -204,9 +204,10 @@ while ($statusmodalrow = mysqli_fetch_assoc($statusmodalresult)) {
         mysqli_query($conn, $insertTrackingNumberSql);
     }
 
-?>
+    ?>
     <!-- Modal -->
-    <div class="modal fade" id="orderStatus<?php echo $orderid; ?>" tabindex="-1" role="dialog" aria-labelledby="orderStatus<?php echo $orderid; ?>" aria-hidden="true">
+    <div class="modal fade" id="orderStatus<?php echo $orderid; ?>" tabindex="-1" role="dialog"
+        aria-labelledby="orderStatus<?php echo $orderid; ?>" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -219,13 +220,24 @@ while ($statusmodalrow = mysqli_fetch_assoc($statusmodalresult)) {
                     <div class="container" style="padding-right: 0px;padding-left: 0px;">
                         <article class="card">
                             <div class="card-body">
-                                <h6><strong>Order ID:</strong> #<?php echo $orderid; ?></h6>
+                                <h6><strong>Order ID:</strong> #
+                                    <?php echo $orderid; ?>
+                                </h6>
                                 <article class="card">
                                     <div class="card-body row">
-                                        <div class="col"> <strong>Estimated Delivery time:</strong> <br><?php echo $deliveryTime; ?> minute </div>
-                                        <div class="col"> <strong>Shipping By:</strong> <br> <?php echo $deliveryBoyName; ?> | <i class="fa fa-phone"></i> <?php echo $deliveryBoyPhoneNo; ?> </div>
-                                        <div class="col"> <strong>Status:</strong> <br> <?php echo $tstatus; ?> </div>
-                                        <div class="col"> <strong>Tracking #:</strong> <br> <?php echo $trackId; ?> </div>
+                                        <div class="col"> <strong>Estimated Delivery time:</strong> <br>
+                                            <?php echo $deliveryTime; ?> minute
+                                        </div>
+                                        <div class="col"> <strong>Shipping By:</strong> <br>
+                                            <?php echo $deliveryBoyName; ?> | <i class="fa fa-phone"></i>
+                                            <?php echo $deliveryBoyPhoneNo; ?>
+                                        </div>
+                                        <div class="col"> <strong>Status:</strong> <br>
+                                            <?php echo $tstatus; ?>
+                                        </div>
+                                        <div class="col"> <strong>Tracking #:</strong> <br>
+                                            <?php echo $trackId; ?>
+                                        </div>
                                     </div>
                                 </article>
                                 <div class="track">
@@ -332,7 +344,8 @@ while ($statusmodalrow = mysqli_fetch_assoc($statusmodalresult)) {
                                     }
                                     ?>
                                 </div>
-                                <a href="contact.php" class="btn btn-danger bg-gradient my-3" data-abc="true">Help <i class="fa fa-chevron-right"></i></a>
+                                <a href="contact.php" class="btn btn-danger bg-gradient my-3" data-abc="true">Help <i
+                                        class="fa fa-chevron-right"></i></a>
                             </div>
                         </article>
                     </div>
@@ -340,6 +353,6 @@ while ($statusmodalrow = mysqli_fetch_assoc($statusmodalresult)) {
             </div>
         </div>
     </div>
-<?php
+    <?php
 }
 ?>

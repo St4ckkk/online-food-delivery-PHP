@@ -39,7 +39,8 @@
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input class="form-control" id="password" name="password" placeholder="Enter Password" type="password" required minlength="4" maxlength="21">
+            <input class="form-control" id="password" name="password" placeholder="Enter Password" type="password" required minlength="4" maxlength="21" onkeyup="checkPasswordStrength();">
+            <div id="password-strength-status" style="padding-top: 5px;"></div>
           </div>
           <div class="form-group">
             <label for="cpassword">Re-enter Password</label>
@@ -52,3 +53,23 @@
     </div>
   </div>
 </div>
+<script>
+function checkPasswordStrength() {
+    var number = /([0-9])/;
+    var alphabets = /([a-zA-Z])/;
+    var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,,<])/;
+var password = document.getElementById("password").value;
+var strengthStatus = document.getElementById("password-strength-status");
+if (password.length < 6) {
+    strengthStatus.innerHTML = "<span style='color:red'>Weak (should be at least 6 characters.)</span>";
+} else {
+    if (password.match(number) && password.match(alphabets) && password.match(special_characters)) {
+        strengthStatus.innerHTML = "<span style='color:green'>Strong</span>";
+    } else if (password.match(number) && password.match(alphabets)) {
+        strengthStatus.innerHTML = "<span style='color:orange'>Moderate (include special characters.)</span>";
+    } else {
+        strengthStatus.innerHTML = "<span style='color:red'>Weak (include alphabets, numbers and special characters.)</span>";
+    }
+}
+}
+</script>
